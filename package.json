@@ -1,27 +1,29 @@
 {
-  "name": "audiosprite",
+  "name": "soundsprite",
   "description": "Concat small audio files into single file and export in many formats.",
   "keywords": [
     "audio",
     "audio-sprite",
-    "jukebox",
+    "sound-sprite",
+    "stagexl",
+    "howler",
     "ffmpeg"
   ],
-  "author": "Tõnis Tiigi <tonistiigi@gmail.com>",
+  "author": "Tõnis Tiigi <tonistiigi@gmail.com>, Alex Gann <alex@realbluesky.com>",
   "version": "0.2.1",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/github.com/tonistiigi/audiosprite/raw/master/LICENSE"
+      "url": "https://raw.github.com/realbluesky/soundsprite/master/LICENSE"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/tonistiigi/audiosprite.git"
+    "url": "git://github.com/realbluesky/soundsprite.git"
   },
-  "main": "./audiosprite.js",
+  "main": "./soundsprite.js",
   "bin": {
-    "audiosprite": "./audiosprite.js"
+    "audiosprite": "./soundsprite.js"
   },
   "dependencies": {
     "optimist": "~0.3.4",
