@@ -9,8 +9,8 @@
     "howler",
     "ffmpeg"
   ],
-  "author": "Tõnis Tiigi <tonistiigi@gmail.com>, Alex Gann <alex@realbluesky.com>",
-  "version": "0.2.1",
+  "author": "Alex Gann <alex@realbluesky.com>",
+  "version": "0.2.2",
   "licenses": [
     {
       "type": "MIT",
@@ -23,7 +23,7 @@
   },
   "main": "./soundsprite.js",
   "bin": {
-    "audiosprite": "./soundsprite.js"
+    "soundsprite": "./soundsprite.js"
   },
   "dependencies": {
     "optimist": "~0.3.4",

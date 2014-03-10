@@ -73,14 +73,14 @@ if (argv.help || !files.length) {
   if (!argv.help) {
     winston.error('No input files specified.')
   }
-  winston.info('Usage: audiosprite [options] file1.mp3 file2.mp3 *.wav')
+  winston.info('Usage: soundsprite [options] file1.mp3 file2.mp3 *.wav')
   winston.info(optimist.help())
   process.exit(1)
 }
 
 var offsetCursor = 0
 var wavArgs = ['-ar', SAMPLE_RATE, '-ac', NUM_CHANNELS, '-f', 's16le']
-var tempFile = mktemp('audiosprite')
+var tempFile = mktemp('soundsprite')
 
 winston.debug('Created temporary file', { file: tempFile })
 
@@ -129,7 +129,7 @@ function pad(num, size) {
 }
 
 function makeRawAudioFile(src, cb) {
-  var dest = mktemp('audiosprite')
+  var dest = mktemp('soundsprite')
 
   winston.debug('Start processing', { file: src})
 
