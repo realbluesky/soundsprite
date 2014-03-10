@@ -85,8 +85,8 @@ var tempFile = mktemp('audiosprite')
 winston.debug('Created temporary file', { file: tempFile })
 
 var json = {
-  resources: []
-, spritemap: {}
+  urls: []
+, sprite: {}
 }
 
 spawn('ffmpeg', ['-version']).on('exit', function(code) {
@@ -95,7 +95,7 @@ spawn('ffmpeg', ['-version']).on('exit', function(code) {
     process.exit(1)
   }
   if (argv.silence) {
-    json.spritemap.silence = {
+    json.sprite.silence = {
       start: 0
     , end: argv.silence
     , loop: true
@@ -168,13 +168,10 @@ function appendFile(name, src, dest, cb) {
   require('util').pump(reader, writer, function() {
     var duration = size / SAMPLE_RATE / NUM_CHANNELS / 2
     winston.info('File added OK', { file: src, duration: duration })
-    json.spritemap[name] = {
-      start: offsetCursor
-    , end: offsetCursor + duration
-    , loop: name === argv.autoplay
-    }
+    json.sprite[name] = [offsetCursor, duration, name === argv.autoplay]
     offsetCursor += duration
-    appendSilence(Math.ceil(duration) - duration + 1, dest, cb)
+    //appendSilence(Math.ceil(duration) - duration + 1, dest, cb)
+    cb()
   })
 }
 
@@ -206,7 +203,7 @@ exportFile = function(src, dest, ext, opt, store, cb) {
       if (ext === 'aiff') {
         exportFileCaf(outfile, dest + '.caf', function(err) {
           if (!err && store) {
-            json.resources.push(dest + '.caf')
+            json.urls.push(dest + '.caf')
           }
           fs.unlinkSync(outfile)
           cb()
@@ -214,7 +211,7 @@ exportFile = function(src, dest, ext, opt, store, cb) {
       } else {
         winston.info("Exported " + ext + " OK", { file: outfile })
         if (store) {
-          json.resources.push(outfile)
+          json.urls.push(outfile)
         }
         cb()
       }
