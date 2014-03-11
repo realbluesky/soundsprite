@@ -65,15 +65,10 @@ info: All done
   ],
   "sprite": {
     "bg_loop": [0, 3.75, true],
-    "click": [3.75, 0.3]
-  },
-  "autoplay": "bg_loop"
+    "click": [4, 0.3]
+  }
 }
 ```
-
-####Setting autoplay track
-
-You can use `--autoplay` option to set a track that will start playing automatically. This track is then marked as autoplay and looping in the JSON. This syntax is Jukebox framework specific.
 
 ####Custom silent track
 
