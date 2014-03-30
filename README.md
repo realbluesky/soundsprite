@@ -2,7 +2,7 @@
 
 **Forked from [tonistiigi/audiosprite] (https://github.com/tonistiigi/audiosprite) to target other frameworks - all credit to original author**
 
-This is a `ffmpeg` wrapper that will take in **multiple audio files** and combines them **into a single file**.  The final file will be exported in `mp3`, `ogg`, `ac3`, `m4a` and `caf`(IMA-ADPCM) to support as many devices as possible. This tool will also generate a `JSON` file that is compatible with [goldfire/howler.js](https://github.com/goldfire/howler.js) framework.
+This is a `ffmpeg` wrapper that will take in **multiple audio files** and combines them **into a single file**.  The final file will be exported in `mp3`, `webm`, `opus`, `m4a` and `caf`(IMA-ADPCM) to support as many devices as possible. This tool will also generate a `JSON` file that is compatible with [goldfire/howler.js](https://github.com/goldfire/howler.js) framework.
 
 This project is also targeting [bp74/StageXL] (https://github.com/bp74/StageXL) - implementation pending.
 
@@ -46,10 +46,10 @@ info: 1.25s silence gap added OK
 info: File added OK file=click.mp3
 info: 1.70s silence gap added OK
 info: Exported caf OK file=mygameaudio.caf
-info: Exported ac3 OK file=mygameaudio.ac3
+info: Exported ac3 OK file=mygameaudio.opus
 info: Exported mp3 OK file=mygameaudio.mp3
 info: Exported m4a OK file=mygameaudio.m4a
-info: Exported ogg OK file=mygameaudio.ogg
+info: Exported ogg OK file=mygameaudio.webm
 info: Exported json OK file=mygameaudio.json
 info: All done
 
@@ -58,10 +58,10 @@ info: All done
 {
   "urls": [
     "mygameaudio.caf",
-    "mygameaudio.ac3",
+    "mygameaudio.opus",
     "mygameaudio.mp3",
     "mygameaudio.m4a",
-    "mygameaudio.ogg"
+    "mygameaudio.webm"
   ],
   "sprite": {
     "bg_loop": [0, 3.75, true],

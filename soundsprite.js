@@ -170,8 +170,7 @@ function appendFile(name, src, dest, cb) {
     winston.info('File added OK', { file: src, duration: duration })
     json.sprite[name] = [offsetCursor, duration, name === argv.autoplay]
     offsetCursor += duration
-    //appendSilence(Math.ceil(duration) - duration + 1, dest, cb)
-    cb()
+    appendSilence(0.25, dest, cb)
   })
 }
 
@@ -240,10 +239,10 @@ function exportFileCaf(src, dest, cb) {
 function processFiles() {
   var formats = {
     aiff: []
-  , ac3: '-acodec ac3'.split(' ')
-  , mp3: ['-ar', SAMPLE_RATE, '-ab', '128k', '-f', 'mp3']
-  , m4a: []
-  , ogg: '-acodec libvorbis -f ogg'.split(' ')
+  , opus: '-acodec libopus -vbr on -compression_level 10'.split(' ') //opus, -b:a 128k -vbr on and -compression_level 10 enabled by default
+  , mp3: ['-ar', SAMPLE_RATE, '-aq', '4', '-f', 'mp3'] //was -ab 128k now -aq 4 (VBR good quality)
+  , m4a: [] //guess defaults work - can't use VBR here, so will be larger
+  , webm: '-acodec libvorbis -qscale:a 5 -f webm'.split(' ') //-qscale:a 5 VBR stuff vorbis into webm instead of ogg container, better playback chance
   }
 
   if (argv.export.length) {
